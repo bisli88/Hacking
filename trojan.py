@@ -10,7 +10,10 @@ PORT = 65432
 
 def options(command):
     msg = "Command output:\n"
-    msg += subprocess.check_output(command, shell=True, universal_newlines=True)
+    try:
+        msg += subprocess.check_output(command, shell=True, universal_newlines=True)
+    except:
+        print("error")
     print(msg)
     return msg
 
